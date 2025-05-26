@@ -1,12 +1,13 @@
-
-
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
 export default function Home() {
   const navigate = useNavigate();
 
-  localStorage.getItem("username") == null ? navigate("/login") : "";
+if (!localStorage.getItem("username")) {
+  window.location.href = "/login";
+}
+
   const [errors, setErrors] = useState({});
 
   const [BMI, setBMI] = useState();

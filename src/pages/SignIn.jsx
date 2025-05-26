@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 export default function SignIn() {
+
+  if (localStorage.getItem("username")) {
+    window.location.href = "/";
+  }
+
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
